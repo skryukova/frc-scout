@@ -1,0 +1,48 @@
+{
+  "frc5829": {
+      "address": null,
+      "city": "Houston",
+      "country": "USA",
+      "gmaps_place_id": null,
+      "gmaps_url": null,
+      "home_championship": {
+          "2017": "Houston",
+          "2018": "Houston"
+      },
+      "key": "frc5829",
+      "lat": null,
+      "lng": null,
+      "location_name": null,
+      "motto": "Awtybots Roll Out!",
+      "name": "Awty International School",
+      "nickname": "AwtyBots",
+      "postal_code": "77055",
+      "rookie_year": 2016,
+      "state_prov": "Texas",
+      "team_number": 5829,
+      "website": "http://www.awtybots.org"
+  },
+  "frc3847" : {
+    "address": null,
+    "city": "Houston",
+    "country": "USA",
+    "gmaps_place_id": null,
+    "gmaps_url": null,
+    "home_championship": {
+      "2017": "Houston",
+      "2018": "Houston"
+    },
+    "key": "frc3847",
+    "lat": null,
+    "lng": null,
+    "location_name": null,
+    "motto": "Infinite Wavelengths, One Spectrum",
+    "name": "NRG/Texas Workforce Commission/Solarcraft, Inc/FIRST in Texas/ExxonMobil/International Society of Automation, Houston Chapter/Star Precision Fabricating/Royalty Metal Finishing/DS Solidworks&St Agnes Academy School&Strake Jesuit College Prep School",
+    "nickname": "Spectrum   -△◅",
+    "postal_code": "77036",
+    "rookie_year": 2011,
+    "state_prov": "Texas",
+    "team_number": 3847,
+    "website": "http://www.spectrum3847.org/"
+  }
+}
