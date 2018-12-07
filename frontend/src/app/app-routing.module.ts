@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { CurrentEventComponent } from './current-event/current-event.component'
+import { TeamsComponent } from './teams/teams.component'
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'current-event',
     component: CurrentEventComponent
+  },
+  {
+    path: 'teams',
+    component: TeamsComponent
   }
 ];
 
