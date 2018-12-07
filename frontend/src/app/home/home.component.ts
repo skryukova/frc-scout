@@ -10,12 +10,16 @@ import { Observable } from 'rxjs';
 export class HomeComponent implements OnInit {
 
   home_team$: Object;
+  current_event$: Object;
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
     this.data.getHomeTeam().subscribe(
       data => this.home_team$ = data 
+    );
+    this.data.getCurrentEvent().subscribe(
+      data => this.current_event$ = data
     );
   }
 

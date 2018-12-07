@@ -1,3 +1,18 @@
-<p>
-  current-event works!
-</p>
+<h1 *ngIf="current_event$">Current Event "{{current_event$.name}}"</h1>
+
+<h2>Qualifying Matches</h2>
+<ul>
+    <li *ngFor="let match of getQualifyingMatches()">
+      <ul *ngIf="match.comp_level == 'qm'">
+        <li>{{match.match_number}}</li>
+        <li>Blue: {{match.alliances.blue.team_keys[0]}}, 
+          {{match.alliances.blue.team_keys[1]}}
+          {{match.alliances.blue.team_keys[2]}}
+        </li>
+        <li>Red: {{match.alliances.red.team_keys[0]}}, 
+            {{match.alliances.red.team_keys[1]}}
+            {{match.alliances.red.team_keys[2]}}
+        </li>
+      </ul>
+    </li>
+</ul>

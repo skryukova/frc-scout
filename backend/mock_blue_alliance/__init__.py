@@ -26,6 +26,9 @@ class MockBlueAlliance:
     def get_event_teams_keys(self, event):
         return self.__load__("event_teams_keys.json")[event]
 
+    def get_event_matches(self, event):
+        return self.__load__("event_matches.json")[event]
+    
     def today(self):
         import datetime
         return datetime.datetime.strptime("2018-04-06", "%Y-%m-%d").date()

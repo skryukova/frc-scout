@@ -48,3 +48,16 @@ class CurrentEvent(BaseResource):
             if event["current"]:
                 return event
         return None
+
+
+class EventMatches(BaseResource):
+    def get(self, key):
+        matches = self._blue_alliance_api_.get_event_matches(key)
+        return matches
+
+
+class QualifyingEventMatches(BaseResource):
+    def get(self, key):
+        all_matches = self._blue_alliance_api_.get_event_matches(key)
+        matches = list(filter(lambda m: m["comp_level"] == "qm", all_matches))
+        return matches

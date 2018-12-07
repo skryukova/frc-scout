@@ -7,7 +7,8 @@ from .datastore import Team
 from .datastore import HomeTeam
 from .datastore import Events
 from .datastore import CurrentEvent
-
+from .datastore import EventMatches
+from .datastore import QualifyingEventMatches
 
 def create_app(test_config=None):
     # create and configure the app
@@ -43,6 +44,8 @@ def create_app(test_config=None):
     api.add_resource(Team, '/team/<key>')
     api.add_resource(Events, '/events')
     api.add_resource(CurrentEvent, '/events/current')
+    api.add_resource(EventMatches, '/event/<key>/matches')
+    api.add_resource(QualifyingEventMatches, '/event/<key>/qualifying_matches')
 
     # Add localhost CORS
     CORS()
