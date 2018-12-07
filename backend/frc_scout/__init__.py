@@ -2,6 +2,7 @@ import os
 
 from flask import Flask
 from flask_restful import Api
+from flask_cors import CORS
 from .datastore import Team
 from .datastore import HomeTeam
 from .datastore import Events
@@ -11,6 +12,10 @@ from .datastore import CurrentEvent
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
+
+    # TODO: Review this temporary solution to get local Angular App to work
+    CORS(app, origin="localhost")
+
     api = Api(app)
     app.config.from_mapping(
         SECRET_KEY='dev',
@@ -39,4 +44,6 @@ def create_app(test_config=None):
     api.add_resource(Events, '/events')
     api.add_resource(CurrentEvent, '/events/current')
 
+    # Add localhost CORS
+    CORS()
     return app

@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { CurrentEventComponent } from './current-event/current-event.component';
 import { TeamsComponent } from './teams/teams.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,8 @@ import { TeamsComponent } from './teams/teams.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
