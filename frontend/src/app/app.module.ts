@@ -9,6 +9,7 @@ import { CurrentEventComponent } from './current-event/current-event.component';
 import { TeamsComponent } from './teams/teams.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { MatchTeamReportComponent } from './match-team-report/match-team-report.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     SidebarComponent,
     HomeComponent,
     CurrentEventComponent,
-    TeamsComponent
+    TeamsComponent,
+    MatchTeamReportComponent
   ],
   imports: [
     BrowserModule,

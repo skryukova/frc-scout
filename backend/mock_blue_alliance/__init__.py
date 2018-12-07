@@ -17,6 +17,9 @@ class MockBlueAlliance:
     def get_team(self, key):
         return self.__load__("team.json")[key]
 
+    def get_match(self, key):
+        return self.__load__("match.json")[key]
+
     def get_events(self, team):
         return self.__load__("events.json")[team]
 

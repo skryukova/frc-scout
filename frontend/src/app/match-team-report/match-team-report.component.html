@@ -1,0 +1,6 @@
+<div *ngIf="team$ && match$">
+  <h1>Report for Match {{match$.match_number}} for team 
+    {{team$.nickname}} ({{team_id$}}) </h1>
+  <h2 *ngIf="event$">Event: {{event$.name}}</h2>
+</div>
+
