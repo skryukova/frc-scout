@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Observable } from 'rxjs';
+import { filter } from 'rxjs/operators';
+
+interface Match {
+  comp_level: string,
+  match_number: number
+}
 
 @Component({
   selector: 'app-current-event',
@@ -28,10 +34,11 @@ export class CurrentEventComponent implements OnInit {
   getQualifyingMatches() {
     if (this.matches$ != null) {
       if (this.qualifyingMatches == null) {
-        this.qualifyingMatches = this.matches$.filter(
+        var matchesArray = this.matches$ as Array<Match>;        
+        this.qualifyingMatches = matchesArray.filter(
           match => match.comp_level == "qm"
         ).sort(
-          (m1, m2) => parseInt(m1.match_number) - parseInt(m2.match_number)
+          (m1, m2) => m1.match_number - m2.match_number
         )
       }
     }
