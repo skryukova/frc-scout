@@ -13,6 +13,9 @@ export class MatchTeamReportComponent implements OnInit {
   match$: Object;
   team$: Object;
   event$: Object;
+  config$: Object;
+
+  // Parameters:
   match_id$: string;
   team_id$: string;
 
@@ -30,6 +33,9 @@ export class MatchTeamReportComponent implements OnInit {
     this.data.getMatch(this.match_id$).subscribe(
       data => { 
         this.match$ = data;
+        this.data.getEventReportConfiguration(data["event_key"]).subscribe(
+          data => this.config$ = data
+        )
         this.data.getEvent(data["event_key"]).subscribe(
           data => this.event$ = data
         )

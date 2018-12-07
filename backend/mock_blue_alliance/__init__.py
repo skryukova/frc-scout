@@ -14,11 +14,21 @@ class MockBlueAlliance:
         with open(file_path, "rt") as f:
             return json.load(f)
 
+    def __get_by_key__(self, file_name, key, random=False):
+        values_dict = self.__load__(file_name)
+        if key in values_dict:
+            return values_dict[key]
+        if random:
+            if len(values_dict) > 0:
+                for k in values_dict:
+                    return values_dict[k]
+        return None
+
     def get_team(self, key):
-        return self.__load__("team.json")[key]
+        return self.__get_by_key__("team.json", key, random=True)
 
     def get_match(self, key):
-        return self.__load__("match.json")[key]
+        return self.__get_by_key__("match.json", key, random=True)
 
     def get_events(self, team):
         return self.__load__("events.json")[team]

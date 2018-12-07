@@ -2,5 +2,10 @@
   <h1>Report for Match {{match$.match_number}} for team 
     {{team$.nickname}} ({{team_id$}}) </h1>
   <h2 *ngIf="event$">Event: {{event$.name}}</h2>
+  <div *ngIf="config$">
+    <ul *ngFor="let field of config$">
+      <li><strong>{{field.label}}</strong>: {{report$[field.name]}}</li>
+    </ul>
+  </div>
 </div>
 

@@ -4,16 +4,16 @@
 <ul>
     <li *ngFor="let match of getQualifyingMatches()">
       <ul *ngIf="match.comp_level == 'qm'">
-        <li>{{match.match_number}}</li>
+        <li><strong>Match: {{match.match_number}}</strong></li>
         <li>Blue:
             <a routerLink="/report/{{match.key}}/{{match.alliances.blue.team_keys[0]}}">
               {{match.alliances.blue.team_keys[0]}}
             </a>, 
-          {{match.alliances.blue.team_keys[1]}}
+          {{match.alliances.blue.team_keys[1]}},
           {{match.alliances.blue.team_keys[2]}}
         </li>
         <li>Red: {{match.alliances.red.team_keys[0]}}, 
-            {{match.alliances.red.team_keys[1]}}
+            {{match.alliances.red.team_keys[1]}},
             {{match.alliances.red.team_keys[2]}}
         </li>
       </ul>
