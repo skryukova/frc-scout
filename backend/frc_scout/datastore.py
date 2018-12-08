@@ -51,32 +51,38 @@ class ReportConfiguration(BaseResource):
             {
                 "name": "Auton",
                 "type": "string",
-                "label": "Auton"
+                "label": "Auton",
+                "control": "text"
             },
             {
                 "name": "NumberOnSwitch",
                 "type": "number",
-                "label": "# on switch"
+                "label": "# on switch",
+                "control": "number"
             },
             {
                 "name": "NumberOnScale",
                 "type": "number",
-                "label": "# on scale"
+                "label": "# on scale",
+                "control": "number"
             },
             {
                 "name": "NumberInVault",
                 "type": "number",
-                "label": "# in vault"
+                "label": "# in vault",
+                "control": "number"
             },
             {
                 "name": "ScoreOnSwitch",
                 "type": "boolean",
-                "label": "Scored on switch"
+                "label": "Scored on switch",
+                "control": "checkbox"
             },
             {
                 "name": "ScoreOnScale",
                 "type": "boolean",
-                "label": "Scored on scale"
+                "label": "Scored on scale",
+                "control": "checkbox"
             }
         ]
         return config
@@ -133,12 +139,13 @@ class TeamMatchReport(BaseResource):
     def get(self, match, team):
         return self.load_file(self.get_file_name(match, team))
 
-    def post(self, match, team):
-        return self.dump_file(
-            request.form['data'],
-            self.get_file_name(match, team))
-
     def put(self, match, team):
+        current_app.logger.info("JSON: {0}".format(request.json))
+        current_app.logger.info("DATA: {0}".format(request.data))
+        if request.json is None:
+            data = json.loads(request.data)
+        else:
+            data = request.json
         return self.dump_file(
-            request.form['data'],
+            data,
             self.get_file_name(match, team))

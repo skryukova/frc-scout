@@ -36,11 +36,29 @@ export class DataService {
 
   getEventReportConfiguration(event)
   {
-    return this.http.get(this.env.api_url + "event/" + event + '/config')
+    var config = this.http.get(this.env.api_url + "event/" + event + '/config')
+    return config;
   }
 
   getMatchTeamReport(match, team)
   {
     return this.http.get(this.env.api_url + "match/" + match + '/team/' + team)
+  }
+
+  updateMatchTeamReport(match, team, report)
+  {
+    console.log("In updateMatchTeamReport ")
+    var data = JSON.stringify(report)
+    console.log("Data: " + data) 
+    this.http.put(
+      this.env.api_url + "match/" + match + '/team/' + team,
+      data,
+      {}
+    ).subscribe(
+      data => {
+        console.log("Inside subscribe")
+      }
+    )
+    console.log("After updateMatchTeamReport")
   }
 }

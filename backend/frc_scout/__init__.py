@@ -13,6 +13,21 @@ from .datastore import ReportConfiguration
 from .datastore import Match
 from .datastore import Event
 
+
+todos = {}
+
+from flask import request
+from flask_restful import Resource
+
+class TodoSimple(Resource):
+    def get(self, todo_id):
+        return {todo_id: todos[todo_id]}
+
+    def put(self, todo_id):
+        todos[todo_id] = request.form['data']
+        return {todo_id: todos[todo_id]}
+
+
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
@@ -50,6 +65,7 @@ def create_app(test_config=None):
     api.add_resource(CurrentEvent, '/events/current')
     api.add_resource(EventMatches, '/event/<key>/matches')
     api.add_resource(Match, '/match/<key>')
-    api.add_resource(TeamMatchReport, '/match/<match>/team/<team>')
+    api.add_resource(TeamMatchReport, '/match/<string:match>/team/<string:team>')
     api.add_resource(ReportConfiguration, '/event/<event>/config')
+    api.add_resource(TodoSimple, '/todo/<string:todo_id>')
     return app

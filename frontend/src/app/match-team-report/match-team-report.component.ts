@@ -46,4 +46,24 @@ export class MatchTeamReportComponent implements OnInit {
     );
   }
 
+  submitted = false;
+
+  onSubmit() 
+  { 
+    this.submitted = true;
+    this.data.updateMatchTeamReport(
+      this.match_id$, 
+      this.team_id$, 
+      this.report$)
+  }
+
+  onReset()
+  {
+    this.data.getMatchTeamReport(this.match_id$, this.team_id$).subscribe(
+      data => this.report$ = data 
+    );
+  }
+
+    // TODO: Remove this when we're done
+    get diagnostic() { return JSON.stringify(this.config$); }
 }
