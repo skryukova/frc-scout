@@ -48,3 +48,13 @@ class CurrentEvent(BaseResource):
             if event["current"]:
                 return event
         return None
+
+
+class FutureEvents(BaseResource):
+    def get(self):
+        events = self.get_events(self._home_team_key_)
+        future_events = []
+        for event in events:
+            if event["future"]:
+                future_events.append(event)
+        return future_events

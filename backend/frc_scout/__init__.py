@@ -6,6 +6,7 @@ from .datastore import Team
 from .datastore import HomeTeam
 from .datastore import Events
 from .datastore import CurrentEvent
+from .datastore import FutureEvents
 
 
 def create_app(test_config=None):
@@ -39,5 +40,6 @@ def create_app(test_config=None):
     api.add_resource(Team, '/team/<key>')
     api.add_resource(Events, '/events')
     api.add_resource(CurrentEvent, '/events/current')
+    api.add_resource(FutureEvents, '/events/future')
 
     return app
