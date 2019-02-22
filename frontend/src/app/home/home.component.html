@@ -2,11 +2,14 @@
   home works!
 
 </p>
-
+<div>
+  <button (click)="getEvent()">test</button>
+  <span>Event: {{event | json}}</span>
+</div>
 This will display:
 <ul>
-  <li>Name of the home team and info</li>
-  <li>Current and our stats in it</li>
-  <li>Upcoming matches for the current event</li>
+  <li>Name of the home team and basic competition info</li>
+  <li>Current Event and our stats in it</li>
+  <li>Upcoming matches for the current event with teammates and opponents ranked</li>
   <li>Short list of the this year's past events</li>
 </ul>
