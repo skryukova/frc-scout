@@ -15,8 +15,8 @@ This will change as implementation gets containerized
 ### Running Backend
 1) Navigate to the `backend` directory 
 2) Set a couple of environment variables:
-`export FLASK_APP=flaskr
-export FLASK_ENV=development`
+`export FLASK_APP=flaskr`
+`export FLASK_ENV=development`
 3) Start the server by running command `flask run`
 
 ### Running Front End
