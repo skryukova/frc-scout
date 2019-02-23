@@ -9,12 +9,23 @@
             <a routerLink="/report/{{match.key}}/{{match.alliances.blue.team_keys[0]}}">
               {{match.alliances.blue.team_keys[0]}}
             </a>, 
-          {{match.alliances.blue.team_keys[1]}},
-          {{match.alliances.blue.team_keys[2]}}
+            <a routerLink="/report/{{match.key}}/{{match.alliances.blue.team_keys[1]}}">
+              {{match.alliances.blue.team_keys[1]}}
+            </a>,
+            <a routerLink="/report/{{match.key}}/{{match.alliances.blue.team_keys[2]}}">
+              {{match.alliances.blue.team_keys[2]}}
+            </a>
         </li>
-        <li>Red: {{match.alliances.red.team_keys[0]}}, 
-            {{match.alliances.red.team_keys[1]}},
-            {{match.alliances.red.team_keys[2]}}
+        <li>Red: 
+            <a routerLink="/report/{{match.key}}/{{match.alliances.red.team_keys[0]}}">
+              {{match.alliances.red.team_keys[0]}}
+            </a>, 
+            <a routerLink="/report/{{match.key}}/{{match.alliances.red.team_keys[0]}}">
+              {{match.alliances.red.team_keys[1]}}
+            </a>,
+            <a routerLink="/report/{{match.key}}/{{match.alliances.red.team_keys[0]}}">
+              {{match.alliances.red.team_keys[2]}}
+            </a>
         </li>
       </ul>
     </li>
