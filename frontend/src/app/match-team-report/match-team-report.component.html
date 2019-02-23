@@ -1,0 +1,25 @@
+<div *ngIf="team$ && match$">
+  <h1>Report for Match {{match$.match_number}} for team 
+    {{team$.nickname}} ({{team_id$}}) </h1>
+  <h2 *ngIf="event$">Event: {{event$.name}}</h2>
+  <div *ngIf="config$">
+    <br/>
+    <form (ngSubmit)="onSubmit()" #reportForm="ngForm">
+      <div *ngFor="let field of config$">
+        <div class="form-group">
+          <label for="{{field.name}}">{{field.label}}:</label>&nbsp;
+          <input 
+            type="{{field.control}}" 
+            class="form-control" 
+            name="{{field.name}}"
+            [(ngModel)]="report$[field.name]"
+          #spy>
+          <!-- TODO: remove this: {{spy.className}} -->
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success"
+        [disabled]="!reportForm.form.valid || !reportForm.form.dirty">Submit</button>
+    </form>
+  </div>
+</div>
+

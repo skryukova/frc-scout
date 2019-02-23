@@ -1,4 +1,32 @@
-<div>{{getCurrentEvent()}}</div>
-<h1>Current Event: {{currentEvent.name}}</h1>
-<p>{{currentEvent.name}} is in {{currentEvent.city}}, {{currentEvent.state_prov}}</p>
-<p>To watch it go to {{currentEvent.webcasts}}</p>
+<h1 *ngIf="current_event$">Current Event "{{current_event$.name}}"</h1>
+
+<h2>Qualifying Matches</h2>
+<ul>
+    <li *ngFor="let match of getQualifyingMatches()">
+      <ul *ngIf="match.comp_level == 'qm'">
+        <li><strong>Match: {{match.match_number}}</strong></li>
+        <li>Blue:
+            <a routerLink="/report/{{match.key}}/{{match.alliances.blue.team_keys[0]}}">
+              {{match.alliances.blue.team_keys[0]}}
+            </a>, 
+            <a routerLink="/report/{{match.key}}/{{match.alliances.blue.team_keys[1]}}">
+              {{match.alliances.blue.team_keys[1]}}
+            </a>,
+            <a routerLink="/report/{{match.key}}/{{match.alliances.blue.team_keys[2]}}">
+              {{match.alliances.blue.team_keys[2]}}
+            </a>
+        </li>
+        <li>Red: 
+            <a routerLink="/report/{{match.key}}/{{match.alliances.red.team_keys[0]}}">
+              {{match.alliances.red.team_keys[0]}}
+            </a>, 
+            <a routerLink="/report/{{match.key}}/{{match.alliances.red.team_keys[0]}}">
+              {{match.alliances.red.team_keys[1]}}
+            </a>,
+            <a routerLink="/report/{{match.key}}/{{match.alliances.red.team_keys[0]}}">
+              {{match.alliances.red.team_keys[2]}}
+            </a>
+        </li>
+      </ul>
+    </li>
+</ul>

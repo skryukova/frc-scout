@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule }   from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -8,6 +9,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeComponent } from './home/home.component';
 import { CurrentEventComponent } from './current-event/current-event.component';
 import { TeamsComponent } from './teams/teams.component';
+import { MatchTeamReportComponent } from './match-team-report/match-team-report.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { TeamsComponent } from './teams/teams.component';
     SidebarComponent,
     HomeComponent,
     CurrentEventComponent,
-    TeamsComponent
+    TeamsComponent,
+    MatchTeamReportComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
