@@ -15,6 +15,7 @@
             <a routerLink="/report/{{match.key}}/{{match.alliances.blue.team_keys[2]}}">
               {{match.alliances.blue.team_keys[2]}}
             </a>
+            <b>Score: {{match.alliances.blue.score}}</b>
         </li>
         <li>Red: 
             <a routerLink="/report/{{match.key}}/{{match.alliances.red.team_keys[0]}}">
@@ -26,6 +27,7 @@
             <a routerLink="/report/{{match.key}}/{{match.alliances.red.team_keys[0]}}">
               {{match.alliances.red.team_keys[2]}}
             </a>
+            <b>Score: {{match.alliances.red.score}}</b>
         </li>
       </ul>
     </li>
