@@ -41,6 +41,12 @@ class MockBlueAlliance:
 
     def get_event_matches(self, event):
         return self.__load__("event_matches.json")[event]
+
+    def get_event_match(self, event, match):
+        file = self.__load__("event_matches.json")[event]
+        for game in file:
+            if game["match_number"] == match:
+                return game
     
     def today(self):
         import datetime

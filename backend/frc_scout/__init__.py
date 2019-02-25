@@ -13,7 +13,7 @@ from .datastore import TeamMatchReport
 from .datastore import ReportConfiguration
 from .datastore import Match
 from .datastore import Event
-
+from .datastore import EventMatch
 
 todos = {}
 
@@ -66,6 +66,7 @@ def create_app(test_config=None):
     api.add_resource(FutureEvents, '/events/future')
 
     api.add_resource(EventMatches, '/event/<key>/matches')
+    api.add_resource(EventMatch, '/event/<string:event>/match/<int:match>')
     api.add_resource(Match, '/match/<key>')
     api.add_resource(TeamMatchReport, '/match/<string:match>/team/<string:team>')
     api.add_resource(ReportConfiguration, '/event/<event>/config')

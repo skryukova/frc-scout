@@ -137,6 +137,11 @@ class EventMatches(BaseResource):
         return matches
 
 
+class EventMatch(BaseResource):
+    def get(self, event, match):
+        return self._blue_alliance_api_.get_event_match(event, match)
+
+
 class Match(BaseResource):
     def get(self, key):
         return self._blue_alliance_api_.get_match(key)
