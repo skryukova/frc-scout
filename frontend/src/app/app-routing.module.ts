@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { CurrentEventComponent } from './current-event/current-event.component'
 import { TeamsComponent } from './teams/teams.component'
 import { MatchTeamReportComponent } from './match-team-report/match-team-report.component'
+import { MatchReportComponent } from './match-report/match-report.component'
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'report/:match/:team',
     component: MatchTeamReportComponent
+  },
+  {
+    path: 'report/:match',
+    component: MatchReportComponent
   }
 ];
 
