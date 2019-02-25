@@ -120,6 +120,8 @@ class FutureEvents(BaseResource):
             if event["future"]:
                 future_events.append(event)
         return future_events
+
+
 class Event(BaseResource):
     def get(self, key):
         events = self.get_events(self._home_team_key_)
