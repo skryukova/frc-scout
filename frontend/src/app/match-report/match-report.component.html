@@ -1,22 +1,24 @@
+<p>{{match$ | json}}</p>
 <div *ngIf="match$">
-  <h1>Event: {{event$.name}}</h1>
-  <h2>Match: {{match$.match_number}} </h2>
+  <!--Not sure why this doesn't really work all the way? chrome shows an exception yet it all works correctly and it doesn't make me very happy :(-->
+  <h1 class="centertext">Event: {{current_event$.name}}</h1>
+  <h2 class="centertext">Match: {{match$.match_number}} </h2>
   <!--Optomize this in code. This is inefficiently written-->
   <div class="alignleft">
-    <p>Blue Team</p>
+    <p class="centertext"><strong>Blue Team</strong></p>
     <ul>
       <li>{{match$.alliances.blue.team_keys[0]}}</li>
       <li>{{match$.alliances.blue.team_keys[1]}}</li>
       <li>{{match$.alliances.blue.team_keys[2]}}</li>
     </ul>
+    <p>{{match$.alliances.blue.score}}</p>
   </div>
   <div class="alignright">
-    <p>Red Team</p>
+    <p class="centertext"><strong>Red Team</strong></p>
     <ul>
       <li>{{match$.alliances.red.team_keys[0]}}</li>
       <li>{{match$.alliances.red.team_keys[1]}}</li>
       <li>{{match$.alliances.red.team_keys[2]}}</li>
     </ul>
   </div>
-
 </div>

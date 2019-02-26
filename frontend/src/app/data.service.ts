@@ -45,6 +45,9 @@ export class DataService {
     return this.http.get(this.env.api_url + "match/" + match + '/team/' + team)
   }
 
+  getEventMatch(event, match){
+    return this.http.get(this.env.api_url + "event/" + event + "/match/" + match)
+  }
   updateMatchTeamReport(match, team, report)
   {
     console.log("In updateMatchTeamReport ")

@@ -20,11 +20,11 @@ const routes: Routes = [
     component: TeamsComponent
   },
   {
-    path: 'report/:match/:team',
+    path: 'report/match/:match/team/:team',
     component: MatchTeamReportComponent
-  },
+  },  
   {
-    path: 'report/:match',
+    path: 'report/event/:event/match/:match',
     component: MatchReportComponent
   }
 ];
