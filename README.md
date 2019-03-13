@@ -8,6 +8,10 @@ and will become something more useful as the project matures
 This application is using the following technology stacks
 * Angular 6 on the front end
 * Python and Flask on the backend
+  * Download Python 3.7.1 from here https://www.python.org/downloads/release/python-371/
+  * Install pip
+  * Install flask by running "pip install flask"
+
 You should install those in your environment.
 
 ## Running in Debug
