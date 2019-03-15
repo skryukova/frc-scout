@@ -3,7 +3,7 @@ import { FormsModule }   from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MatSidenavModule, MatToolbarModule, MatIconModule } from '@angular/material';
+import { MatSidenavModule, MatToolbarModule, MatIconModule, MatCardModule, MatListModule, MatDividerModule, MatGridListModule } from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -32,10 +32,14 @@ import { EventsComponent } from './events/events.component';
     MatIconModule,
     MatSidenavModule,
     MatToolbarModule,
+    MatListModule,
+    MatDividerModule,
+    MatCardModule,
+    MatGridListModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
