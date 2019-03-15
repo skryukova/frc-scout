@@ -112,6 +112,16 @@ class CurrentEvent(BaseResource):
         return None
 
 
+class FutureEvents(BaseResource):
+    def get(self):
+        events = self.get_events(self._home_team_key_)
+        future_events = []
+        for event in events:
+            if event["future"]:
+                future_events.append(event)
+        return future_events
+
+
 class Event(BaseResource):
     def get(self, key):
         events = self.get_events(self._home_team_key_)
@@ -125,6 +135,11 @@ class EventMatches(BaseResource):
     def get(self, key):
         matches = self._blue_alliance_api_.get_event_matches(key)
         return matches
+
+
+class EventMatch(BaseResource):
+    def get(self, event, match):
+        return self._blue_alliance_api_.get_event_match(event, match)
 
 
 class Match(BaseResource):

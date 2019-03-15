@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { DataService } from '../data.service';
 import { Observable } from 'rxjs';
 
@@ -8,11 +9,12 @@ import { Observable } from 'rxjs';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  event: JSON;
 
   home_team$: Object;
   current_event$: Object;
 
-  constructor(private data: DataService) { }
+  constructor(private data: DataService, private httpClient : HttpClient) { }
 
   ngOnInit() {
     this.data.getHomeTeam().subscribe(
@@ -23,4 +25,10 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  getEvent() {
+    this.httpClient.get('http://localhost:5000/events').subscribe(data => {
+      this.event = data as JSON;
+      console.log(this.event);
+    })
+  }
 }

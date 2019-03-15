@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\current-event",
+    "\\src\\app\\home"
+  ],
+  "SelectedNode": "\\src\\app\\current-event\\current-event.component.ts",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,51 @@
+ul.Red-Team{
+    float: right;
+}
+ul.Blue-Team{
+    float: left;
+}
+.right {
+    position: absolute;
+    right: 10px;
+    width: 300px;
+    border: 3px solid #73AD21;
+    padding: 10px;
+}
+.middle {
+    position: absolute;
+    right:  400px; //Need to change to middle somehow
+    width: 300px;
+    border: 3px solid #73AD21;
+    padding: 10px
+}
+.left {
+    position: absolute;
+    left: 100px;
+    width: 300px;
+    border: 3px solid #73AD21;
+    padding: 10px;
+}
+.center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+}
+.alignright{
+    float: right;
+}
+.aligncenter{
+    float: center;
+}
+.centertext{
+    text-align: center;
+}
+.alignleft{
+    float: left;
+}
+li{
+    text-align: center;
+    width: 200px;
+    height: 150px;
+    padding: 5x;
+}

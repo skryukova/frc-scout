@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { DataService } from '../data.service';
 import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
@@ -18,7 +19,9 @@ export class CurrentEventComponent implements OnInit {
   matches$: Object = null;
   qualifyingMatches: Object = null;
 
-  constructor(private data: DataService) { }
+  currentEvent : JSON;
+
+  constructor(private httpClient : HttpClient, private data: DataService) { }
 
   ngOnInit() {
     this.data.getCurrentEvent().subscribe(
@@ -43,6 +46,13 @@ export class CurrentEventComponent implements OnInit {
       }
     }
     return this.qualifyingMatches
+  }
+  
+  getCurrentEvent() {
+    this.httpClient.get('http://localhost:5000/events/current').subscribe(data => {
+      this.currentEvent = data as JSON;
+      console.log(this.currentEvent);
+    })
   }
 
 }

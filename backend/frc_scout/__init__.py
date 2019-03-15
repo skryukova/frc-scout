@@ -1,5 +1,5 @@
 import os
-
+from flask_cors import CORS
 from flask import Flask
 from flask_restful import Api
 from flask_cors import CORS
@@ -7,12 +7,13 @@ from .datastore import Team
 from .datastore import HomeTeam
 from .datastore import Events
 from .datastore import CurrentEvent
+from .datastore import FutureEvents
 from .datastore import EventMatches
 from .datastore import TeamMatchReport
 from .datastore import ReportConfiguration
 from .datastore import Match
 from .datastore import Event
-
+from .datastore import EventMatch
 
 todos = {}
 
@@ -31,7 +32,6 @@ class TodoSimple(Resource):
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
-
     # TODO: Review this temporary solution to get local Angular App to work
     CORS(app, origin="localhost")
 
@@ -63,7 +63,10 @@ def create_app(test_config=None):
     api.add_resource(Events, '/events')
     api.add_resource(Event, '/event/<key>')
     api.add_resource(CurrentEvent, '/events/current')
+    api.add_resource(FutureEvents, '/events/future')
+
     api.add_resource(EventMatches, '/event/<key>/matches')
+    api.add_resource(EventMatch, '/event/<string:event>/match/<int:match>')
     api.add_resource(Match, '/match/<key>')
     api.add_resource(TeamMatchReport, '/match/<string:match>/team/<string:team>')
     api.add_resource(ReportConfiguration, '/event/<event>/config')
