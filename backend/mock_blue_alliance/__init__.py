@@ -51,4 +51,4 @@ class MockBlueAlliance:
     
     def today(self):
         import datetime
-        return datetime.datetime.strptime("2018-04-06", "%Y-%m-%d").date()
+        return datetime.datetime.strptime("2019-03-15", "%Y-%m-%d").date()
