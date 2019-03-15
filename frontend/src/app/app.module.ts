@@ -3,7 +3,7 @@ import { FormsModule }   from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MatButtonModule, MatCheckboxModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
+import { MatSidenavModule, MatToolbarModule, MatIconModule } from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -29,8 +29,7 @@ import { EventsComponent } from './events/events.component';
   ],
   imports: [
     NoopAnimationsModule,
-    MatButtonModule,
-    MatCheckboxModule,
+    MatIconModule,
     MatSidenavModule,
     MatToolbarModule,
     BrowserModule,
