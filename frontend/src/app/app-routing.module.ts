@@ -5,11 +5,16 @@ import { CurrentEventComponent } from './current-event/current-event.component'
 import { TeamsComponent } from './teams/teams.component'
 import { MatchTeamReportComponent } from './match-team-report/match-team-report.component'
 import { MatchReportComponent } from './match-report/match-report.component'
+import { EventsComponent } from './events/events.component'
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'events',
+    component: EventsComponent
   },
   {
     path: 'current-event',

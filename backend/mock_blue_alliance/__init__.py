@@ -46,7 +46,8 @@ class MockBlueAlliance:
         file = self.__load__("event_matches.json")[event]
         for game in file:
             if game["match_number"] == match:
-                return game
+                if game["comp_level"] == "qm":
+                    return game
     
     def today(self):
         import datetime

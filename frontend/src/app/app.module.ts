@@ -11,6 +11,7 @@ import { CurrentEventComponent } from './current-event/current-event.component';
 import { TeamsComponent } from './teams/teams.component';
 import { MatchTeamReportComponent } from './match-team-report/match-team-report.component';
 import { MatchReportComponent } from './match-report/match-report.component';
+import { EventsComponent } from './events/events.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MatchReportComponent } from './match-report/match-report.component';
     CurrentEventComponent,
     TeamsComponent,
     MatchTeamReportComponent,
-    MatchReportComponent
+    MatchReportComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,

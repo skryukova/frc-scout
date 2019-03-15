@@ -1,24 +1,46 @@
-<p>{{match$ | json}}</p>
 <div *ngIf="match$">
   <!--Not sure why this doesn't really work all the way? chrome shows an exception yet it all works correctly and it doesn't make me very happy :(-->
   <h1 class="centertext">Event: {{current_event$.name}}</h1>
   <h2 class="centertext">Match: {{match$.match_number}} </h2>
+  <div class="left">
+    <h3 class="centertext">Blue Team</h3>
+    <ul>
+      <li routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.blue.team_keys[0]}}">{{match$.alliances.blue.team_keys[0]}}</li>
+      <li routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.blue.team_keys[1]}}">{{match$.alliances.blue.team_keys[1]}}</li>
+      <li routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.blue.team_keys[2]}}">{{match$.alliances.blue.team_keys[2]}}</li>
+    </ul>
+  </div>
+  <div class="right">
+      <h3 class="centertext">Red Team</h3>
+      <ul>
+        <li routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.red.team_keys[0]}}">{{match$.alliances.red.team_keys[0]}}</li>
+        <li routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.red.team_keys[1]}}">{{match$.alliances.red.team_keys[1]}}</li>
+        <li routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.red.team_keys[2]}}">{{match$.alliances.red.team_keys[2]}}</li>
+      </ul>
+    </div>
+  <div *ngFor="let statBlue of match$.score_breakdown.blue | keyvalue" class="centertext">
+    <h3>{{statBlue.value}} : {{statBlue.key}} : {{match$.score_breakdown.red[statBlue.key]}}</h3>
+  </div>
+
+
   <!--Optomize this in code. This is inefficiently written-->
-  <div class="alignleft">
+  <!--
+  <div class="left">
     <p class="centertext"><strong>Blue Team</strong></p>
     <ul>
       <li>{{match$.alliances.blue.team_keys[0]}}</li>
       <li>{{match$.alliances.blue.team_keys[1]}}</li>
       <li>{{match$.alliances.blue.team_keys[2]}}</li>
     </ul>
-    <p>{{match$.alliances.blue.score}}</p>
   </div>
-  <div class="alignright">
+  <div class="center">
+  </div>
+  <div class="right">
     <p class="centertext"><strong>Red Team</strong></p>
     <ul>
       <li>{{match$.alliances.red.team_keys[0]}}</li>
       <li>{{match$.alliances.red.team_keys[1]}}</li>
       <li>{{match$.alliances.red.team_keys[2]}}</li>
     </ul>
-  </div>
+  </div>-->
 </div>
