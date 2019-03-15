@@ -4,7 +4,7 @@
 <ul>
     <li *ngFor="let match of getQualifyingMatches()">
       <ul *ngIf="match.comp_level == 'qm'">
-        <li routerLink="/report/event/2018txpa/match/{{match.match_number}}"><strong>Match: {{match.match_number}}</strong></li>
+        <li routerLink="/report/event/{{current_event$.key}}/match/{{match.match_number}}"><strong>Match: {{match.match_number}}</strong></li>
         <li>Blue:
             <a routerLink="/report/match/{{match.key}}/team/{{match.alliances.blue.team_keys[0]}}">
               {{match.alliances.blue.team_keys[0]}}
