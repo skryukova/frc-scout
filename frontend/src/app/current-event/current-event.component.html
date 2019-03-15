@@ -15,7 +15,7 @@
             <a routerLink="/report/match/{{match.key}}/team/{{match.alliances.blue.team_keys[2]}}">
               {{match.alliances.blue.team_keys[2]}}
             </a>
-            <b>Score: {{match.alliances.blue.score}}</b>
+            <b *ngIf="match.alliances.blue.score > -1">Score: {{match.alliances.blue.score}}</b>
         </li>
         <li>Red: 
             <a routerLink="/report/match/{{match.key}}/team/{{match.alliances.red.team_keys[0]}}">
@@ -27,7 +27,7 @@
             <a routerLink="/report/match/{{match.key}}/team/{{match.alliances.red.team_keys[0]}}">
               {{match.alliances.red.team_keys[2]}}
             </a>
-            <b>Score: {{match.alliances.red.score}}</b>
+            <b *ngIf="match.alliances.red.score > -1">Score: {{match.alliances.red.score}}</b>
         </li>
       </ul>
     </li>
