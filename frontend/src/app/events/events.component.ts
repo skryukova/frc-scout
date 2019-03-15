@@ -9,6 +9,7 @@ import { DataService } from '../data.service';
 })
 export class EventsComponent implements OnInit {
   event_list$: String;
+  
   constructor() { }
 
   ngOnInit() {

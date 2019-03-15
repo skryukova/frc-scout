@@ -1,25 +1,52 @@
 <div *ngIf="match$">
-  <!--Not sure why this doesn't really work all the way? chrome shows an exception yet it all works correctly and it doesn't make me very happy :(-->
+  <mat-grid-list cols="3">
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-title>Blue Team</mat-card-title>
+        <mat-list>
+          <mat-list-item routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.blue.team_keys[0]}}">{{match$.alliances.blue.team_keys[0]}}</mat-list-item>
+          <mat-list-item routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.blue.team_keys[1]}}">{{match$.alliances.blue.team_keys[1]}}</mat-list-item>
+          <mat-list-item routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.blue.team_keys[2]}}">{{match$.alliances.blue.team_keys[2]}}</mat-list-item>
+        </mat-list>
+    </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>Test</mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-title>Red Team</mat-card-title>
+        <mat-list>
+          <mat-list-item routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.red.team_keys[0]}}">{{match$.alliances.red.team_keys[0]}}</mat-list-item>
+          <mat-list-item routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.red.team_keys[1]}}">{{match$.alliances.red.team_keys[1]}}</mat-list-item>
+          <mat-list-item routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.red.team_keys[2]}}">{{match$.alliances.red.team_keys[2]}}</mat-list-item>
+        </mat-list>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list> <!--
   <h1 class="centertext">Event: {{current_event$.name}}</h1>
   <h2 class="centertext">Match: {{match$.match_number}} </h2>
-  <div class="left">
-    <h3 class="centertext">Blue Team</h3>
-    <ul>
-      <li routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.blue.team_keys[0]}}">{{match$.alliances.blue.team_keys[0]}}</li>
-      <li routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.blue.team_keys[1]}}">{{match$.alliances.blue.team_keys[1]}}</li>
-      <li routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.blue.team_keys[2]}}">{{match$.alliances.blue.team_keys[2]}}</li>
-    </ul>
-  </div>
-  <div class="right">
-      <h3 class="centertext">Red Team</h3>
-      <ul>
-        <li routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.red.team_keys[0]}}">{{match$.alliances.red.team_keys[0]}}</li>
-        <li routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.red.team_keys[1]}}">{{match$.alliances.red.team_keys[1]}}</li>
-        <li routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.red.team_keys[2]}}">{{match$.alliances.red.team_keys[2]}}</li>
-      </ul>
-    </div>
+  <mat-card class="left">
+    <mat-card-title class="centertext">Blue Team</mat-card-title>
+    <mat-card-content>
+        <mat-list>
+            <mat-list-item routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.blue.team_keys[0]}}">{{match$.alliances.blue.team_keys[0]}}</mat-list-item>
+            <mat-list-item routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.blue.team_keys[1]}}">{{match$.alliances.blue.team_keys[1]}}</mat-list-item>
+            <mat-list-item routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.blue.team_keys[2]}}">{{match$.alliances.blue.team_keys[2]}}</mat-list-item>
+        </mat-list>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="right">
+    <mat-card-title class="centertext">Red Team</mat-card-title>
+    <mat-card-content>
+        <mat-list>
+            <mat-list-item routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.red.team_keys[0]}}">{{match$.alliances.red.team_keys[0]}}</mat-list-item>
+            <mat-list-item routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.red.team_keys[1]}}">{{match$.alliances.red.team_keys[1]}}</mat-list-item>
+            <mat-list-item routerLink="/report/match/{{match$.key}}/team/{{match$.alliances.red.team_keys[2]}}">{{match$.alliances.red.team_keys[2]}}</mat-list-item>
+        </mat-list>
+    </mat-card-content>
+  </mat-card>
   <div *ngFor="let statBlue of match$.score_breakdown.blue | keyvalue" class="centertext">
-    <h3>{{statBlue.value}} : {{statBlue.key}} : {{match$.score_breakdown.red[statBlue.key]}}</h3>
+    <p>{{statBlue.value}} | <b>{{statBlue.key}}</b> | {{match$.score_breakdown.red[statBlue.key]}}</p>
+    <mat-divider></mat-divider> ->
   </div>
 
 
