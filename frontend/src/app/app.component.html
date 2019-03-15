@@ -1,7 +1,11 @@
-<div id="container">
-  <app-sidebar></app-sidebar>
-
-  <div id="content">
-    <router-outlet></router-outlet>
-  </div>
-</div>
+<mat-sidenav-container>
+    <mat-sidenav mode="side" role="navigation"  
+        fixedInViewport opened disableClose>
+        <app-sidebar></app-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div>    
+        <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
