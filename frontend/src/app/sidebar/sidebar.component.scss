@@ -1,11 +1,14 @@
-@import '~@angular/material/theming';
-
 .sidebar {
+    margin: 0px;
+    padding: 8px;
     text-align: center;
-    width: 64px;
-    margin-left: -10px;
-    background-color: primary;
+    align-content: center;
+    position: fixed;
+    left: 0;
 }
 .sidebaricon {
     font-size: 32px;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
 }
