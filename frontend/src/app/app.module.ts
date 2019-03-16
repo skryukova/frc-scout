@@ -3,7 +3,10 @@ import { FormsModule }   from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MatSidenavModule, MatToolbarModule, MatIconModule, MatCardModule, MatListModule, MatDividerModule, MatGridListModule } from '@angular/material';
+import { MatSidenavModule, MatToolbarModule, MatIconModule, MatCardModule, 
+  MatListModule, MatDividerModule, MatGridListModule, 
+  MatFormFieldModule, MatInputModule, MatCheckboxModule, MatButtonModule
+} from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -38,6 +41,10 @@ import { AllianceCardComponent } from './alliance-card/alliance-card.component';
     MatDividerModule,
     MatCardModule,
     MatGridListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatButtonModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
