@@ -1,0 +1,16 @@
+<mat-card class="match-alliance-card">
+    <mat-card-title>{{color}} 
+      <span *ngIf="alliance.score > -1">({{alliance.score}})</span>
+    </mat-card-title>
+    <mat-card-content>
+        <a routerLink="/report/match/{{match_key}}/team/{{alliance.team_keys[0]}}">
+          {{alliance.team_keys[0]}}
+        </a><br/>
+        <a routerLink="/report/match/{{match_key}}/team/{{alliance.team_keys[1]}}">
+          {{alliance.team_keys[1]}}
+        </a><br/>
+        <a routerLink="/report/match/{{match_key}}/team/{{alliance.team_keys[2]}}">
+          {{alliance.team_keys[2]}}
+        </a>
+    </mat-card-content>
+  </mat-card>
