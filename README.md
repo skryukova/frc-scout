@@ -6,7 +6,7 @@ and will become something more useful as the project matures
 
 ## Prerequisites
 This application is using the following technology stacks
-* Angular 6 on the front end
+* Angular 7 on the front end
 * Python and Flask on the backend
   * Download Python 3.7.1 from here https://www.python.org/downloads/release/python-371/
   * Install pip
@@ -23,15 +23,16 @@ This will change as implementation gets containerized
 `export FLASK_APP=frc_scout`  
 `export FLASK_ENV=development`
 3) Create subdirectory named `instance`
-4) Create file in the new subdirectory, name `application.cfg`, with the following contents: 
-`SECRET_KEY='dev'`
-`HOME_TEAM='<home team key>'`
-`AUTH_KEY='<auth key>'`
-3) Start the server by running command `flask run`
+4) Create file, named `application.cfg`, in the new subdirectory with the following contents:  
+`SECRET_KEY='dev'`  
+`HOME_TEAM='<home team key>'`  
+`AUTH_KEY='<auth key>'`  
+where `AUTH_KEY` is the Blue Alliance API key, and `<home team key>` is the Blue Alliance key of the team that will use this app for scouting its needs. 
+5) Start the server by running command `flask run`
 
 ### Running Front End
 1) Navigate to the `frontend` directory 
-2) Run `ng serve -o` command
+2) Run `ng serve` command
 
 
 
