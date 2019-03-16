@@ -7,7 +7,7 @@
     <br/>
     <form (ngSubmit)="onSubmit()" #reportForm="ngForm">
       <div *ngFor="let field of config$">
-        <mat-form-field *ngIf="field.control != 'checkbox'">
+        <mat-form-field *ngIf="(field.control != 'checkbox') && (field.control != 'select')">
           <input 
             type="{{field.control}}" 
             name="{{field.name}}"
@@ -16,11 +16,22 @@
             [(ngModel)]="report$[field.name]"
           >
         </mat-form-field>
+        <mat-form-field *ngIf="field.control == 'select'">
+          <mat-select 
+            name="{{field.name}}"
+            placeholder="{{field.label}}" 
+            [(ngModel)]="report$[field.name]" 
+            required>
+              <mat-option *ngFor="let opt of field.options" [value]="opt">
+                  {{opt}}
+                </mat-option>
+          </mat-select>
+        </mat-form-field>
         <mat-checkbox 
           *ngIf="field.control == 'checkbox'"
           name="{{field.name}}"
           [(ngModel)]="report$[field.name]">
-            {{field.label}}
+          {{field.label}}
         </mat-checkbox>
       </div>
       <button 

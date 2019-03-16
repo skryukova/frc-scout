@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MatSidenavModule, MatToolbarModule, MatIconModule, MatCardModule, 
-  MatListModule, MatDividerModule, MatGridListModule, 
+  MatListModule, MatDividerModule, MatGridListModule, MatSelectModule,
   MatFormFieldModule, MatInputModule, MatCheckboxModule, MatButtonModule
 } from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -44,7 +44,8 @@ import { AllianceCardComponent } from './alliance-card/alliance-card.component';
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
-    MatButtonModule,
+    MatButtonModule,  
+    MatSelectModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,

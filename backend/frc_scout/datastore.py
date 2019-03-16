@@ -52,7 +52,12 @@ class ReportConfiguration(BaseResource):
                 "name": "Auton",
                 "type": "string",
                 "label": "Auton",
-                "control": "text"
+                "control": "select",
+                "options": [
+                    "No",
+                    "Yes",
+                    "Somewhat"
+                ]
             },
             {
                 "name": "NumberOnSwitch",
