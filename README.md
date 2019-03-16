@@ -16,11 +16,17 @@ You should install those in your environment.
 
 ## Running in Debug
 This will change as implementation gets containerized
+
 ### Running Backend
 1) Navigate to the `backend` directory 
 2) Set a couple of environment variables:  
-`export FLASK_APP=flaskr`  
+`export FLASK_APP=frc_scout`  
 `export FLASK_ENV=development`
+3) Create subdirectory named `instance`
+4) Create file in the new subdirectory, name `application.cfg`, with the following contents: 
+`SECRET_KEY='dev'`
+`HOME_TEAM='<home team key>'`
+`AUTH_KEY='<auth key>'`
 3) Start the server by running command `flask run`
 
 ### Running Front End
