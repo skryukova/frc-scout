@@ -2,18 +2,29 @@
 
 <h2>Qualifying Matches</h2>
 
-<ul>
-    <li *ngFor="let match of getQualifyingMatches()">
-      <ul *ngIf="match.comp_level == 'qm'">
-        <li routerLink="/report/event/{{current_event$.key}}/match/{{match.match_number}}"><strong>Match: {{match.match_number}}</strong></li>
-          <app-alliance-card 
-            [alliance]="match.alliances.blue"
-            [color]="'Blue'"
-            [match_key]="match.key"></app-alliance-card>
-          <app-alliance-card 
-            [alliance]="match.alliances.red"
-            [color]="'Red'" 
-            [match_key]="match.key"></app-alliance-card>
-      </ul>
-    </li>
-</ul>
+<div *ngFor="let match of getQualifyingMatches()">
+  <div *ngIf="match.comp_level == 'qm'">
+    <mat-card class="match-card">  
+      <mat-card-title routerLink="/report/event/{{current_event$.key}}/match/{{match.match_number}}">
+        Match: {{match.match_number}}
+      </mat-card-title>
+      <mat-card-content>
+        <mat-grid-list class="match-grid-list" cols="2" rowHeight="fit">
+          <mat-grid-tile>
+              <app-alliance-card 
+                [alliance]="match.alliances.blue"
+                [color]="'Blue'"
+                [match_key]="match.key"></app-alliance-card>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <app-alliance-card 
+              [alliance]="match.alliances.red"
+              [color]="'Red'" 
+              [match_key]="match.key"></app-alliance-card>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
