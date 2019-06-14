@@ -1,5 +1,13 @@
 <div class="sidebar light-colors">
-<mat-icon routerLink="" class="sidebaricon light-colors">home</mat-icon><br/>
-<mat-icon routerLink="current-event" class="sidebaricon light-colors">event</mat-icon><br/>
-<mat-icon routerLink="teams" class="sidebaricon light-colors">group</mat-icon><br/>
+<mat-icon routerLink="" class="sidebaricon light-colors"
+    routerLinkActive="sidebaricon light-colors-active"
+    [routerLinkActiveOptions]="{exact:true}">home</mat-icon><br/>
+<mat-icon routerLink="current-event" 
+    routerLinkActive="sidebaricon light-colors-active"
+    [routerLinkActiveOptions]="{exact:true}"
+    class="sidebaricon light-colors">event</mat-icon><br/>
+<mat-icon routerLink="teams" 
+    class="sidebaricon light-colors"
+    routerLinkActive="sidebaricon light-colors-active"
+    [routerLinkActiveOptions]="{exact:true}">group</mat-icon><br/>
 </div>

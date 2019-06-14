@@ -18,5 +18,9 @@ $light-background-palette: map-get($theme, background);
 
 .light-colors{
     background-color : mat-color($primary, default);
-    color: mat-color($light-foreground-palette, text);
+    color: mat-color($light-background-palette, text);
+}
+.light-colors-active {
+    background-color : mat-color($primary, default);
+    color: white;
 }
