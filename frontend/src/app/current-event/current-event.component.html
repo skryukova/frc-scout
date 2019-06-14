@@ -1,6 +1,6 @@
-<h1 *ngIf="current_event$">Current Event "{{current_event$.name}}"</h1>
+<h1 class="mat-h1" *ngIf="current_event$">Current Event "{{current_event$.name}}"</h1>
 
-<h2>Qualifying Matches</h2>
+<h2 class="mat-h2">Qualifying Matches</h2>
 
 <div *ngFor="let match of getQualifyingMatches()">
   <div *ngIf="match.comp_level == 'qm'">
