@@ -24,10 +24,14 @@ This will change as implementation gets containerized
 `export FLASK_ENV=development`
 3) Create subdirectory named `instance`
 4) Create file, named `application.cfg`, in the new subdirectory with the following contents:  
-`SECRET_KEY='dev'`  
 `HOME_TEAM='<home team key>'`  
 `AUTH_KEY='<auth key>'`  
 where `AUTH_KEY` is the Blue Alliance API key, and `<home team key>` is the Blue Alliance key of the team that will use this app for scouting its needs. 
+4) While developing, debugging, you might find it useful to use "mock" alliance API end point and "mock" clock. To do so, add the following contents to the `application.cfg` file:
+`MOCK_BLUE_ALLIANCE_API=True`
+`MOCK_CLOCK='2019-03-15'`
+where `MOCK_CLOCK` is the current time on the clock, used to calculate current event and match, and
+`MOCK_BLUE_ALLIANCE_API` is a boolean value indicating whether to use real or mock Blue Alliance end point.
 5) Start the server by running command `flask run`
 
 ### Running Front End

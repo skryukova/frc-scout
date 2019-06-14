@@ -3,6 +3,7 @@ import os
 import requests
 from hashlib import md5
 
+
 class RealBlueAlliance:
     READ_URL_PRE = 'https://www.thebluealliance.com/api/v3'
     session = requests.Session()
@@ -56,8 +57,4 @@ class RealBlueAlliance:
                 if game["match_number"] == match:
                     return game
 
-    @staticmethod
-    def today():
-        import datetime
-        return datetime.datetime.now().date()
 

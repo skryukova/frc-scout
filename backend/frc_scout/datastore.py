@@ -16,9 +16,13 @@ class BaseResource(Resource):
     def _home_team_key_(self):
         return current_app.config["HOME_TEAM"]
 
+    @property
+    def _clock_(self):
+        return current_app.config["CLOCK"]
+
     def get_events(self, team):
         events = self._blue_alliance_api_.get_events(team)
-        today = self._blue_alliance_api_.today()
+        today = self._clock_.today()
         for event in events:
             start_date = datetime.strptime(event["start_date"], "%Y-%m-%d").date()
             end_date = datetime.strptime(event["end_date"], "%Y-%m-%d").date()

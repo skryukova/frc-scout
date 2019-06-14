@@ -41,8 +41,22 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    from real_blue_alliance import RealBlueAlliance
-    app.config["BLUE_ALLIANCE_API"] = RealBlueAlliance(app.config["AUTH_KEY"])
+    if "MOCK_BLUE_ALLIANCE_API" in app.config and app.config["MOCK_BLUE_ALLIANCE_API"]:
+        print("Creating mock alliance")
+        from mock_blue_alliance import MockBlueAlliance
+        app.config["BLUE_ALLIANCE_API"] = MockBlueAlliance()
+    else:
+        from real_blue_alliance import RealBlueAlliance
+        app.config["BLUE_ALLIANCE_API"] = RealBlueAlliance(app.config["AUTH_KEY"])
+
+    if "MOCK_CLOCK" in app.config:
+        print("Creating mock clock")
+        from clock import MockClock
+        app.config["CLOCK"] = MockClock(app.config["MOCK_CLOCK"])
+    else:
+        print("Real Clock")
+        from clock import RealClock
+        app.config["CLOCK"] = RealClock()
 
     # Add resources
     api.add_resource(HomeTeam, '/home')

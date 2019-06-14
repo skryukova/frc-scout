@@ -48,7 +48,3 @@ class MockBlueAlliance:
             if game["match_number"] == match:
                 if game["comp_level"] == "qm":
                     return game
-    
-    def today(self):
-        import datetime
-        return datetime.datetime.strptime("2019-03-15", "%Y-%m-%d").date()
