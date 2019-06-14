@@ -5,7 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MatSidenavModule, MatToolbarModule, MatIconModule, MatCardModule, 
   MatListModule, MatDividerModule, MatGridListModule, MatSelectModule,
-  MatFormFieldModule, MatInputModule, MatCheckboxModule, MatButtonModule
+  MatFormFieldModule, MatInputModule, MatCheckboxModule, MatButtonModule,
+  MatChipsModule
 } from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -46,6 +47,7 @@ import { AllianceCardComponent } from './alliance-card/alliance-card.component';
     MatCheckboxModule,
     MatButtonModule,  
     MatSelectModule,
+    MatChipsModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,

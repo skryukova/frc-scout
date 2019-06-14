@@ -1,6 +1,12 @@
 <mat-card class="match-alliance-card">
     <mat-card-title>{{color}} Team
       <span *ngIf="alliance.score > -1">({{alliance.score}})</span>
+      <mat-card-subtitle>
+        <mat-chip-list>
+          <mat-chip *ngIf="alliance.winner" color="primary" selected>Winner</mat-chip>
+          <mat-chip *ngIf="alliance.rp > -1">RP: {{alliance.rp}}</mat-chip>
+        </mat-chip-list>
+      </mat-card-subtitle>
     </mat-card-title>
     <mat-card-content>
         <a routerLink="/report/match/{{match_key}}/team/{{alliance.team_keys[0]}}">

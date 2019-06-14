@@ -1,8 +1,10 @@
 <div *ngIf="team$ && match$">
-  <h1 class="mat-h1">Report for Match {{match$.match_number}} for team 
-    {{team$.nickname}} ({{team_id$}}) </h1>
-  <h2 class="mat-h2" *ngIf="event$">Event: {{event$.name}}</h2>
-  
+  <div class="page-header">
+    <h1 class="mat-h1">Report for Match {{match$.match_number}} for team 
+      {{team$.nickname}} ({{team_id$}}) </h1>
+    <h2 class="mat-h2" *ngIf="event$">Event: {{event$.name}}</h2>
+  </div>
+
   <div *ngIf="config$">
     <br/>
     <form (ngSubmit)="onSubmit()" #reportForm="ngForm">

@@ -80,3 +80,11 @@ class MockBlueAlliance:
                 if game["comp_level"] == "qm":
                     self.__clean_up_match__(game)
                     return game
+
+    def get_team_event_status(self, team, event):
+        file = self.__load__("event_team_status.json")
+        return file[event][team]
+
+    def get_event_event_teams_statuses(self, event):
+        file = self.__load__("event_team_status.json")
+        return file[event]

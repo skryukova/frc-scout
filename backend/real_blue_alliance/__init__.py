@@ -57,4 +57,9 @@ class RealBlueAlliance:
                 if game["match_number"] == match:
                     return game
 
+    def get_team_event_status(self, team, event):
+        return self._get('/team/%s/event/%s/status' % (team, event))
+
+    def get_event_event_teams_statuses(self, event):
+        return self._get('/event/%s/teams/statuses' % event)
 

@@ -48,6 +48,37 @@ class BaseResource(Resource):
             json.dump(obj, f, indent=True)
         return None
 
+    def enrich_match(self, match, team_statuses=None):
+        """
+        Enrich the match data structure (specifically alliances part) with
+            1) who the winner is (if known)
+            2) current ranking of the teams
+            3) # of ranking points received
+        :param match: raw match data structure returned from Blue Alliance
+        :return:
+        """
+        # Mark the winning alliance
+        match["alliances"]["red"]["winner"] = False
+        match["alliances"]["blue"]["winner"] = False
+        if match["winning_alliance"] != "":
+            match["alliances"][match["winning_alliance"]]["winner"] = True
+
+        # Add ranking points
+        if match["score_breakdown"] is not None:
+            match["alliances"]["blue"]["rp"] = match["score_breakdown"]["blue"]["rp"]
+            match["alliances"]["red"]["rp"] = match["score_breakdown"]["red"]["rp"]
+
+        if team_statuses is None:
+            team_statuses = self._blue_alliance_api_.get_event_event_teams_statuses(match["event_key"])
+
+        for alliance in ["blue", "red"]:
+            match["alliances"][alliance]["team_details"] = {}
+            for team in match["alliances"][alliance]["team_keys"]:
+                details = {}
+                if team in team_statuses:
+                    details["rank"] = team_statuses[team]["qual"]["ranking"]["rank"]
+                match["alliances"][alliance]["team_details"][team] = details
+
 
 class ReportConfiguration(BaseResource):
     def get(self, event):
@@ -102,6 +133,27 @@ class Team(BaseResource):
         return self._blue_alliance_api_.get_team(key)
 
 
+class Teams(BaseResource):
+    def get(self):
+        # First get all events
+        current_year = self._clock_.today().year
+        current_app.logger.info("Current year: {0}".format(current_year))
+        events = self.get_events(self._home_team_key_)
+        teams = {}
+        for event in events:
+            if event["year"] == current_year:
+                event_key = event["key"]
+                current_app.logger.info("Considering teams for event '{0}'".format(event_key))
+                event_teams = self._blue_alliance_api_.get_event_teams_keys(event_key)
+                for team in event_teams:
+                    if team == self._home_team_key_:
+                        continue
+                    if team not in teams:
+                        teams[team] = []
+                    teams[team].append(event_key)
+        return teams
+
+
 class HomeTeam(BaseResource):
     def get(self):
         return self._blue_alliance_api_.get_team(self._home_team_key_)
@@ -143,17 +195,24 @@ class Event(BaseResource):
 class EventMatches(BaseResource):
     def get(self, key):
         matches = self._blue_alliance_api_.get_event_matches(key)
+        team_statuses = self._blue_alliance_api_.get_event_event_teams_statuses(key)
+        for match in matches:
+            self.enrich_match(match, team_statuses)
         return matches
 
 
 class EventMatch(BaseResource):
     def get(self, event, match):
-        return self._blue_alliance_api_.get_event_match(event, match)
+        match = self._blue_alliance_api_.get_event_match(event, match)
+        self.enrich_match(match)
+        return match
 
 
 class Match(BaseResource):
     def get(self, key):
-        return self._blue_alliance_api_.get_match(key)
+        match = self._blue_alliance_api_.get_match(key)
+        self.enrich_match(match)
+        return match
 
 
 class TeamMatchReport(BaseResource):

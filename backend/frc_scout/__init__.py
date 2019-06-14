@@ -4,6 +4,7 @@ from flask import Flask
 from flask_restful import Api
 from flask_cors import CORS
 from .datastore import Team
+from .datastore import Teams
 from .datastore import HomeTeam
 from .datastore import Events
 from .datastore import CurrentEvent
@@ -62,6 +63,7 @@ def create_app(test_config=None):
     # Add resources
     api.add_resource(HomeTeam, '/home')
     api.add_resource(Team, '/team/<key>')
+    api.add_resource(Teams, '/teams')
     api.add_resource(Events, '/events')
     api.add_resource(Event, '/event/<key>')
     api.add_resource(CurrentEvent, '/events/current')
