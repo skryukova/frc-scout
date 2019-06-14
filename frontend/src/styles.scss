@@ -25,3 +25,12 @@ $light-background-palette: map-get($theme, background);
     background-color : mat-color($primary, default);
     color: white;
 }
+.page-header {
+    background-color: mat-color($primary, darker);
+    color: white;
+    margin-left: -10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 1px;
+}
