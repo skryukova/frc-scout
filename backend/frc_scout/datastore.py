@@ -77,6 +77,8 @@ class BaseResource(Resource):
                 details = {}
                 if team in team_statuses:
                     details = team_statuses[team]["qual"]["ranking"]
+                if team in match["alliances"][alliance]["dq_team_keys"]:
+                    details["dq_this_match"] = True
                 match["alliances"][alliance]["team_details"][team] = details
 
 

@@ -10,10 +10,12 @@ export class TeamReportLinkComponent implements OnInit {
   @Input() match_key: string;
   @Input() team_key: string;
   @Input() team_details: Object;
-  
+  isDisqualified: Boolean;
+
   constructor() { }
 
   ngOnInit() {
+    this.isDisqualified = this.team_details["dq_this_match"];
   }
 
 }

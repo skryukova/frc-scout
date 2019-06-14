@@ -1,7 +1,6 @@
 <span class="team-link">
-    {{team_key}}
-    <span *ngIf="team_details">(Rank {{team_details["rank"]}})</span>
-    
+    <span [ngStyle]="isDisqualified && {'text-decoration': 'line-through'}">{{team_key}}</span>&nbsp;
+    <span *ngIf="team_details">(Rank {{team_details["rank"]}})</span>&nbsp;
     <a routerLink="/report/match/{{match_key}}/team/{{team_key}}">
     <div class="tooltip">
       <mat-icon class="team-link-icon">  
