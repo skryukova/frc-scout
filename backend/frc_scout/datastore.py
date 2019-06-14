@@ -76,7 +76,7 @@ class BaseResource(Resource):
             for team in match["alliances"][alliance]["team_keys"]:
                 details = {}
                 if team in team_statuses:
-                    details["rank"] = team_statuses[team]["qual"]["ranking"]["rank"]
+                    details = team_statuses[team]["qual"]["ranking"]
                 match["alliances"][alliance]["team_details"][team] = details
 
 

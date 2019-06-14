@@ -1,0 +1,12 @@
+<span class="team-link">
+    {{team_key}}
+    <span *ngIf="team_details">(Rank {{team_details["rank"]}})</span>
+    
+    <a routerLink="/report/match/{{match_key}}/team/{{team_key}}">
+    <div class="tooltip">
+      <mat-icon class="team-link-icon">  
+        edit
+      </mat-icon><span class="tooltiptext">Edit Team Report</span>
+    </div>
+    </a>
+</span>

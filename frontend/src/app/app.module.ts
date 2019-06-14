@@ -20,6 +20,7 @@ import { MatchTeamReportComponent } from './match-team-report/match-team-report.
 import { MatchReportComponent } from './match-report/match-report.component';
 import { EventsComponent } from './events/events.component';
 import { AllianceCardComponent } from './alliance-card/alliance-card.component';
+import { TeamReportLinkComponent } from './team-report-link/team-report-link.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AllianceCardComponent } from './alliance-card/alliance-card.component';
     MatchTeamReportComponent,
     MatchReportComponent,
     EventsComponent,
-    AllianceCardComponent
+    AllianceCardComponent,
+    TeamReportLinkComponent
   ],
   imports: [
     NoopAnimationsModule,

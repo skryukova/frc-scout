@@ -9,11 +9,21 @@
       </mat-card-subtitle>
     </mat-card-title>
     <mat-card-content>
-        <a routerLink="/report/match/{{match_key}}/team/{{alliance.team_keys[0]}}">
-          {{alliance.team_keys[0]}}</a><br/>
-        <a routerLink="/report/match/{{match_key}}/team/{{alliance.team_keys[1]}}">
-          {{alliance.team_keys[1]}}</a><br/>
-        <a routerLink="/report/match/{{match_key}}/team/{{alliance.team_keys[2]}}">
-          {{alliance.team_keys[2]}}</a>
+      <app-team-report-link
+        [match_key]="match_key"
+        [team_key]="alliance.team_keys[0]"
+        [team_details]="alliance.team_details[alliance.team_keys[0]]">
+      </app-team-report-link>
+      <br/>
+      <app-team-report-link
+        [match_key]="match_key"
+        [team_key]="alliance.team_keys[1]"
+        [team_details]="alliance.team_details[alliance.team_keys[1]]">
+      </app-team-report-link><br/>
+      <app-team-report-link
+        [match_key]="match_key"
+        [team_key]="alliance.team_keys[2]"
+        [team_details]="alliance.team_details[alliance.team_keys[2]]">
+      </app-team-report-link>
     </mat-card-content>
   </mat-card>
