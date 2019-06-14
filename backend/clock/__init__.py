@@ -3,7 +3,7 @@ import datetime
 
 class MockClock:
     def __init__(self, current_time):
-        self.current_time = datetime.datetime.strptime(current_time, "%Y-%m-%d")
+        self.current_time = datetime.datetime.strptime(current_time, "%Y-%m-%d %H:%M:%S")
 
     def today(self):
         return self.current_time.date()
@@ -21,4 +21,3 @@ class RealClock:
 
     def now(self):
         return datetime.datetime.now()
-
